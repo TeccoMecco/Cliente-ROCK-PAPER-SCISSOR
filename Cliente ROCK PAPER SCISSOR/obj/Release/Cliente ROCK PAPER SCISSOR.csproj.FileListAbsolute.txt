@@ -1,0 +1,16 @@
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\bin\Release\Cliente ROCK PAPER SCISSOR.exe.config
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\bin\Release\Cliente ROCK PAPER SCISSOR.exe
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\bin\Release\Cliente ROCK PAPER SCISSOR.pdb
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\Cliente ROCK PAPER SCISSOR.csproj.AssemblyReference.cache
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\Cliente ROCK PAPER SCISSOR.csproj.SuggestedBindingRedirects.cache
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\MainWindow.g.cs
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\App.g.cs
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\Cliente ROCK PAPER SCISSOR_MarkupCompile.cache
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\Cliente ROCK PAPER SCISSOR_MarkupCompile.lref
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\MainWindow.baml
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\Cliente ROCK PAPER SCISSOR.g.resources
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\Cliente_ROCK_PAPER_SCISSOR.Properties.Resources.resources
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\Cliente ROCK PAPER SCISSOR.csproj.GenerateResource.cache
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\Cliente ROCK PAPER SCISSOR.csproj.CoreCompileInputs.cache
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\Cliente ROCK PAPER SCISSOR.exe
+C:\Users\Tecco\source\repos\Cliente ROCK PAPER SCISSOR\Cliente ROCK PAPER SCISSOR\obj\Release\Cliente ROCK PAPER SCISSOR.pdb

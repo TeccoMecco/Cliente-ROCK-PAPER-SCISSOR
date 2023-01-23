@@ -6,6 +6,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Windows;
+using System.Timers;
+using System.Windows.Threading;
 
 namespace Program
 {
@@ -17,14 +19,17 @@ namespace Program
         int i = 0;
         int Total_Bytes = 0 ;
         int u = 0;
-       
+        public TcpClient newClient = null;
         
         Semaphore semaphoreObject = new Semaphore(initialCount: 4, maximumCount: 6, name: "Pool");
-        
+        private static System.Timers.Timer aTimer;
         public ConcurrentQueue<string> queue = null;
         public ConcurrentQueue<string> queue2 = null;
         public bool RecebeuString=false;
         public bool siga2 = false;
+        public String Player_2_Choice;
+        int TimerPerRound = 5;
+        public static Semaphore pila = new Semaphore(initialCount: 0, maximumCount: 1);
         public TcpServer(int port)
         {
 
@@ -37,12 +42,18 @@ namespace Program
 
         }
 
-        public TcpServer(int port, ConcurrentQueue<string> Fila_de_Respostas1, ConcurrentQueue<string> Fila_de_Respostas2, bool siga)
+        public TcpServer(int port, ConcurrentQueue<string> Fila_de_Respostas1, ConcurrentQueue<string> Fila_de_Respostas2, String Choice,ref Semaphore cona)
         {
-                siga2 = siga;
-                queue2 = Fila_de_Respostas2;
+            pila = cona;
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timerTick;
+            timer.Start();
+            Player_2_Choice = Choice;
+            queue2 = Fila_de_Respostas2;
                 queue = Fila_de_Respostas1;
                 server = new TcpListener(IPAddress.Any, port);
+
                 
             server.Start();
                 //MessageBox.Show("À espera que o cliente se connecte...");
@@ -52,7 +63,13 @@ namespace Program
                 k.Start();
           
         }
-           
+
+        private void timerTick(object sender, EventArgs e)
+        {
+            TimerPerRound -= 1;
+
+        }
+
         public void LoopClients()
         {
             
@@ -60,7 +77,8 @@ namespace Program
             {
              
                 try
-                {   
+                {
+                    
                     // wait for client connection
                     TcpClient newClient = server.AcceptTcpClient();
                     i++;
@@ -69,6 +87,7 @@ namespace Program
                     Thread t = new Thread(new ParameterizedThreadStart(HandleClient));
                     t.IsBackground = false;
                     t.Start(newClient);
+                    
                     
                 }
                 catch (SocketException e)
@@ -220,6 +239,20 @@ namespace Program
 
 
         }
+        //private static void SetTimer()
+        //{
+        //    // Create a timer with a two second interval.
+        //    aTimer = new System.Timers.Timer(30000);
+        //    // Hook up the Elapsed event for the timer. 
+        //    aTimer.Elapsed += OnTimedEvent;
+        //    aTimer.AutoReset = true;
+        //    aTimer.Enabled = true;
+        //}
+
+        //private static void OnTimedEvent(Object source, ElapsedEventArgs e)
+        //{
+          
+        //}
 
         public void HandleClient(object obj)
         {
@@ -231,10 +264,10 @@ namespace Program
 
             while (bClientConnected)
             {   
-                client.SendTimeout = 500000;
-                client.ReceiveTimeout = 500000;
+                //client.SendTimeout = 500000;
+                //client.ReceiveTimeout = 500000;
                 string codigo = null;
-                string codigo2 = null;
+                 string codigo2 = null;
                 string[] jogadas2 = new string[1000];
                 string[] jogadas = new string[1000];
                 if (queue.Count > 0)
@@ -251,38 +284,60 @@ namespace Program
                             {
                                 sWriter.WriteLine(jogadas[l - 1]+"\n\r");
                                 sWriter.Flush();
-                            }
-
-
-                        }
-                        codigo = null;
-                    }
-                    
-                    
-                }
-                if (queue2.Count > 0 && siga2==true)
-                {
-                    queue2.TryDequeue(out codigo2);
-                    while (codigo2 == "rock;2;\n\r" || codigo2 == "\r" || codigo2 == "" || codigo2 == "scissor;2;\n\r" || codigo2 == "paper;2;\n\r")
-                    {
-
-
-                        jogadas2 = (string[])Processar_Codigo_Teste(sReader, codigo2);
-                        for (int l = 0; l < jogadas2.Length - 1; l++)
-                        {
-                            if (jogadas2[l] == "2")
-                            {
-                                sReader.ReadLine();
                                 
                             }
 
 
                         }
-                        codigo2 = null;
+                        //pila.WaitOne();
+                        //queue2.TryPeek(out codigo2);
+                        //if (codigo2=="JaEsta")
+                        //{
+                        //    queue2.TryDequeue(out codigo2);
+                        //    Player_2_Choice = sReader.ReadLine();
+                        //    queue2.Enqueue(Player_2_Choice);
+                        //}
+                        codigo = null;
+                        //codigo2 = null;
                     }
-
-
+                   
                 }
+
+
+                //if (TimerPerRound == 0)
+                //{
+                    
+                    //Player_2_Choice = sReader.ReadLine();
+                    //queue2.Enqueue(Player_2_Choice);
+
+                    //TimerPerRound = 5;
+
+                //}
+
+                //if (queue2.Count > 0)
+                //{
+
+                //    queue2.TryDequeue(out codigo2);
+                //    while (codigo2 == "rock;2;\n\r" || codigo2 == "\r" || codigo2 == "" || codigo2 == "scissor;2;\n\r" || codigo2 == "paper;2;\n\r")
+                //    {
+
+
+                //        jogadas2 = (string[])Processar_Codigo_Teste(sReader, codigo2);
+                //        for (int l = 0; l < jogadas2.Length - 1; l++)
+                //        {
+                //            if (jogadas2[l] == "2")
+                //            {
+                //                Player_2_Choice = sReader.ReadLine();
+                                
+                //            }
+
+
+                //        }
+                //        codigo2 = null;
+                //    }
+
+
+                //}
 
             }
             //server.Stop();

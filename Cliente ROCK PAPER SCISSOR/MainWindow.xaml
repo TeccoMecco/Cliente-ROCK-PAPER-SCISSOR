@@ -30,7 +30,7 @@
             <TextBlock Text="VS" Margin="491,238,0,146" FontSize="30" FontWeight="Bold" HorizontalAlignment="Left" RenderTransformOrigin="-0.219,0.021"></TextBlock>
             <TextBlock Text="Player1" Margin="254,327,0,58" FontSize="30" FontWeight="Bold" HorizontalAlignment="Left" RenderTransformOrigin="-0.219,0.021"></TextBlock>
             <TextBlock Text="Player2" Margin="646,327,0,58" FontSize="30" FontWeight="Bold" HorizontalAlignment="Left" RenderTransformOrigin="-0.219,0.021"></TextBlock>
-            <TextBlock Text="Player1: 0 - Player2: 0" Margin="408,195,0,190" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" RenderTransformOrigin="-0.219,0.021"></TextBlock>
+            <TextBlock x:Name="Score" Text="Player1: 0 - Player2: 0" Margin="408,195,0,190" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" RenderTransformOrigin="-0.219,0.021"></TextBlock>
             <TextBlock x:Name="Timer" Text="6" Margin="504,293,0,92" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" RenderTransformOrigin="-0.219,0.021"></TextBlock>
             <TextBlock x:Name="Round" Text="Round: 1" Margin="467,146,0,239" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" RenderTransformOrigin="-0.219,0.021"></TextBlock>
             <TextBox Name="IPText" Margin="23,131,604,283"></TextBox>
